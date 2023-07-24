@@ -1,7 +1,18 @@
 const mongoose = require('mongoose');
 
-const url = "mongodb+srv://vikramstdnt:vikramstdnt@todolist-v1.lipbnoo.mongodb.net/?retryWrites=true&w=majority"
+// Use environment variables for MongoDB connection string
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI) {
+  console.error('Please set the MONGODB_URI environment variable.');
+  process.exit(1);
+}
 
 module.exports.connect = () => {
-    mongoose.connect(url).then((res) => console.log('mongodb connected successfully')).catch((err) => console.log("Error: ", err));
+  mongoose
+    .connect(MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch((err) => console.error('Error connecting to MongoDB:', err));
 };
