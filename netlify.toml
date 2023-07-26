@@ -1,2 +1,0 @@
-[build.environment]
-MONGODB_URI = "mongodb+srv://vikramstdnt:vikramstdnt@todolist-v1.lipbnoo.mongodb.net/?retryWrites=true&w=majority"
