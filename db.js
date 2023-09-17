@@ -6,7 +6,7 @@ if (!MONGODB_URI) {
   console.error('Please set the MONGODB_URI environment variable.');
   process.exit(1);
 }
-
+//connect to the database
 module.exports.connect = () => {
   mongoose
     .connect(MONGODB_URI, {
